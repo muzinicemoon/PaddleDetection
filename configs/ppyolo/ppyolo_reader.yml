@@ -3,11 +3,11 @@ TrainReader:
     fields: ['image', 'gt_bbox', 'gt_class', 'gt_score']
     num_max_boxes: 50
   dataset:
-    !COCODataSet
-      image_dir: train2017
-      anno_path: annotations/instances_train2017.json
-      dataset_dir: dataset/coco
+    !VOCDataSet
+      anno_path: trainval.txt
+      dataset_dir: dataset/dust
       with_background: false
+      use_default_label: false
   sample_transforms:
     - !DecodeImage
       to_rgb: True
@@ -46,23 +46,23 @@ TrainReader:
               [30, 61], [62, 45], [59, 119],
               [116, 90], [156, 198], [373, 326]]
     downsample_ratios: [32, 16, 8]
-  batch_size: 24
+  batch_size: 2
   shuffle: true
-  mixup_epoch: 25000
+  mixup_epoch: 150
   drop_last: true
-  worker_num: 8
+  worker_num: 1
   bufsize: 4
   use_process: true
 
 EvalReader:
   inputs_def:
-    fields: ['image', 'im_size', 'im_id']
+    fields: ['image', 'im_id', 'gt_bbox', 'gt_class', 'is_difficult', 'im_size']
     num_max_boxes: 50
   dataset:
-    !COCODataSet
-      image_dir: val2017
-      anno_path: annotations/instances_val2017.json
-      dataset_dir: dataset/coco
+    !VOCDataSet
+      anno_path: test.txt
+      dataset_dir: dataset/dust
+      use_default_label: false
       with_background: false
   sample_transforms:
     - !DecodeImage
@@ -80,9 +80,9 @@ EvalReader:
     - !Permute
       to_bgr: false
       channel_first: True
-  batch_size: 8
+  batch_size: 2
   drop_empty: false
-  worker_num: 8
+  worker_num: 1
   bufsize: 4
 
 TestReader:
@@ -91,7 +91,8 @@ TestReader:
     fields: ['image', 'im_size', 'im_id']
   dataset:
     !ImageFolder
-      anno_path: annotations/instances_val2017.json
+      anno_path: dataset/dust/label_list.txt
+      use_default_label: false
       with_background: false
   sample_transforms:
     - !DecodeImage

@@ -1,0 +1,70 @@
+<annotation>
+    <folder>VOC2007</folder>
+    <!--文件名-->
+    <filename>347.xml</filename>
+    <source>
+        <database>The VOC2007 Database</database>
+        <annotation>PASCAL VOC2007</annotation>
+        <image>flickr</image>
+        <flickrid>325991873</flickrid>
+    </source>
+    <owner>
+        <flickrid>null</flickrid>
+        <name>null</name>
+    </owner>    
+    <size>
+        <width>1920</width>
+        <height>1080</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    
+    <object>        
+        <name>grab</name>
+        <pose>Rear</pose>
+        <!--是否被裁减，0表示完整，1表示不完整-->
+        <truncated>0</truncated>
+        <!--是否容易识别，0表示容易，1表示困难-->
+        <difficult>0</difficult>
+        <!--bounding box的四个坐标-->
+        <bndbox>
+            <xmin>662</xmin>
+            <ymin>90</ymin>
+            <xmax>959</xmax>
+            <ymax>414</ymax>
+        </bndbox>
+    </object>
+    
+    <object>        
+        <name>dust</name>
+        <pose>Rear</pose>
+        <!--是否被裁减，0表示完整，1表示不完整-->
+        <truncated>0</truncated>
+        <!--是否容易识别，0表示容易，1表示困难-->
+        <difficult>0</difficult>
+        <!--bounding box的四个坐标-->
+        <bndbox>
+            <xmin>400</xmin>
+            <ymin>271</ymin>
+            <xmax>658</xmax>
+            <ymax>403</ymax>
+        </bndbox>
+    </object>
+    
+    <object>        
+        <name>truck</name>
+        <pose>Rear</pose>
+        <!--是否被裁减，0表示完整，1表示不完整-->
+        <truncated>0</truncated>
+        <!--是否容易识别，0表示容易，1表示困难-->
+        <difficult>0</difficult>
+        <!--bounding box的四个坐标-->
+        <bndbox>
+            <xmin>835</xmin>
+            <ymin>663</ymin>
+            <xmax>1095</xmax>
+            <ymax>908</ymax>
+        </bndbox>
+    </object>
+    
+</annotation>
