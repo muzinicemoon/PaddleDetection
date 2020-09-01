@@ -49,7 +49,7 @@ import logging
 FORMAT = '%(asctime)s-%(levelname)s: %(message)s'
 logging.basicConfig(level=logging.INFO, format=FORMAT)
 logger = logging.getLogger(__name__)
-
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 
 def main():
     env = os.environ

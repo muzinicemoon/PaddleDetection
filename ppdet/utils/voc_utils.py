@@ -74,6 +74,7 @@ def _walk_voc_dir(year_dir, output_dir):
             fpath = osp.join(filelist_dir, fname)
             for line in open(fpath):
                 name_prefix = line.strip().split()[0]
+                print(name_prefix)
                 if name_prefix in added:
                     continue
                 added.add(name_prefix)

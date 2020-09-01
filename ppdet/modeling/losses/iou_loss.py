@@ -23,7 +23,7 @@ from paddle import fluid
 from ppdet.core.workspace import register, serializable
 
 __all__ = ['IouLoss']
-
+newxx = 0
 
 @register
 @serializable
@@ -191,8 +191,11 @@ class IouLoss(object):
         anchor_w_np = np.array(anchor_w_)
         anchor_w_np = np.reshape(anchor_w_np, newshape=[1, an_num, 1, 1])
         anchor_w_np = np.tile(anchor_w_np, reps=[batch_size, 1, grid_y, grid_x])
+        print('anchor最大宽度：')
+        print(anchor_w_np)
         anchor_w_max = self._create_tensor_from_numpy(
             anchor_w_np.astype(np.float32))
+        print(anchor_w_max)
         anchor_w = fluid.layers.crop(x=anchor_w_max, shape=dcx)
         anchor_w.stop_gradient = True
         anchor_h_ = [anchors[i] for i in range(0, len(anchors)) if i % 2 == 1]
